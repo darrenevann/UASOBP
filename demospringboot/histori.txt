@@ -60,3 +60,5 @@
 [2025-11-26T16:43:38.683072200] Resi: JP0008, Tipe: KirimanReguler, Tujuan: Monas, Berat: 20.00 kg, Biaya: 160000.00
 [2025-11-30T19:34:36.264045400] Resi: JP0007, Tipe: KirimanKargo, Tujuan: Monas, Berat: 11,00 kg, Biaya: 110000,00
 [2025-11-30T19:34:56.469124100] Resi: JP0007, Tipe: KirimanKargo, Tujuan: Monas, Berat: 11,00 kg, Biaya: 110000,00
+[2025-11-30T20:16:09.601909] Resi: JP0006, Tipe: KirimanReguler, Tujuan: JAWA, Berat: 11.00 kg, Biaya: 88000.00
+[2025-11-30T20:16:25.922260] Resi: JP0006, Tipe: KirimanReguler, Tujuan: JAWA, Berat: 11.00 kg, Biaya: 88000.00
