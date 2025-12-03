@@ -1,3 +1,4 @@
+// Leticia Michelle Purba (8252401440)
 package com.example.demospringboot.controller;
 
 import org.springframework.stereotype.Controller;
@@ -5,15 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
 
-@Controller // Tidak ada @RequestMapping di sini
+@Controller
 public class LogoutController {
 
     @GetMapping("/logout")
     public String logout(HttpServletRequest request) {
-        // 1. Membersihkan Sesi (Sesi Admin)
+        // Hapus Session
         request.getSession().invalidate(); 
         
-        // 2. Mengarahkan ke halaman login Admin
+        // Redirect ke Login
         return "redirect:/admin/login"; 
     }
 }

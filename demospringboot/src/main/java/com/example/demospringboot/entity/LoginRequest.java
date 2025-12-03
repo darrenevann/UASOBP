@@ -1,11 +1,12 @@
+// Leticia Michelle Purba (8252401440)
 package com.example.demospringboot.entity;
 
-// Ini adalah model/DTO yang mewakili data yang diterima saat login
+// DTO Login
 public class LoginRequest {
     private String username;
     private String password;
 
-    // Getters dan Setters
+    // Getters & Setters
     public String getUsername() { return username; }
     public void setUsername(String username) { this.username = username; }
     public String getPassword() { return password; }

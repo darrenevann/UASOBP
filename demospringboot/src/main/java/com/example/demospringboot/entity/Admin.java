@@ -1,3 +1,4 @@
+// Leticia Michelle Purba (8252401440)
 package com.example.demospringboot.entity; 
 
 import jakarta.persistence.Column;
@@ -27,7 +28,6 @@ public class Admin {
     @Column(name = "level")
     private String level;
 
-    // Constructor Wajib
     public Admin() {}
 
     // GETTERS dan SETTERS

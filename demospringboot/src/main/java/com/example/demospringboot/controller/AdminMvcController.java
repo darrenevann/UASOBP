@@ -1,3 +1,5 @@
+// Leticia Michelle Purba (8252401440)
+
 package com.example.demospringboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,25 +32,22 @@ public class AdminMvcController {
     @Autowired
     private KurirService kurirService;
     
+    // Halaman Login
     @GetMapping("/login")
-
     public String showAdminLoginPage(Model model) {
         model.addAttribute("loginRequest", new LoginRequest()); 
         return "admin_login"; 
     }
     
+    // Proses Login
     @PostMapping("/login")
-    public String loginAdmin(@ModelAttribute LoginRequest loginRequest, 
-                             HttpServletRequest request) {
-        
+    public String loginAdmin(@ModelAttribute LoginRequest loginRequest, HttpServletRequest request) {
         Admin admin = adminService.loginAdmin(
             loginRequest.getUsername(), 
-
             loginRequest.getPassword()
         );
 
         if (admin != null) {
-        
             request.getSession().setAttribute("Admin", admin); 
             return "redirect:/admin/dashboard"; 
         } else {
@@ -56,30 +55,26 @@ public class AdminMvcController {
         }
     }
     
+    // Dashboard
     @GetMapping("/dashboard")
     public String adminDashboard(Model model, HttpServletRequest request) {
+        // Cek Session
         if (request.getSession().getAttribute("Admin") == null) {
             return "redirect:/admin/login"; 
         }
         
-        // Ambil data Kiriman dari Service
+        // Load Data Dashboard
         model.addAttribute("kirimanList", kirimanService.getAllKiriman());
-        
-        // Tambahkan objek kosong untuk Form Input Kiriman
         model.addAttribute("kirimanBaru", new KirimanReguler()); 
-        
-        // ⬅ PERBAIKAN: Ambil daftar kurir dan tambahkan ke Model
         model.addAttribute("kurirList", kurirService.getAllKurir());
         
         return "admin_dashboard";
     }
 
+    // Logout
     @GetMapping("/logout")
     public String logout(HttpServletRequest request) {
-        // Membersihkan sesi saat ini
         request.getSession().invalidate(); 
-        
-        // Mengarahkan kembali ke halaman login Admin
         return "redirect:/admin/login"; 
     }
 }

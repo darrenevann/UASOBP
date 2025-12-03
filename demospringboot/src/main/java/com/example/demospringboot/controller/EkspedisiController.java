@@ -1,3 +1,4 @@
+// Leticia Michelle Purba (8252401440)
 package com.example.demospringboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,12 @@ public class EkspedisiController {
     @Autowired 
     private KurirService kurirService; 
 
+    // Helper Cek Session
     private boolean isAdminLoggedIn(HttpServletRequest request) {
         return request.getSession().getAttribute("Admin") != null;
     }
 
+    // Proses Tambah/Edit Kiriman
     @PostMapping("/kiriman")
     public String prosesKirimanBaru(
             @RequestParam String tipe,
@@ -40,17 +43,19 @@ public class EkspedisiController {
             @RequestParam(required = false) Long kurirId, 
             Model model, HttpServletRequest request) {
 
+        // Validasi Login
         if (!isAdminLoggedIn(request)) {
             return "redirect:/admin/login";
         }
         
+        // Cek Kurir
         Kurir kurir = null;
         if (kurirId != null && kurirId > 0) {
              kurir = kurirService.getKurirById(kurirId);
         }
 
         try {
-            // KOREKSI 2: Panggil service dengan urutan parameter yang baru
+            // Simpan Data
             ekspedisiService.prosesKiriman(tipe, resi, alamatPengirim, tujuan, berat, volume, id, kurir);
             
             return "redirect:/admin/dashboard"; 
@@ -58,7 +63,7 @@ public class EkspedisiController {
         } catch (IllegalArgumentException e) {
             model.addAttribute("error", e.getMessage());
             
-            // Muat ulang data yang dibutuhkan dashboard jika gagal
+            // Reload Data Dashboard (Error Handling)
             model.addAttribute("kirimanList", ekspedisiService.getDaftarKiriman()); 
             model.addAttribute("kurirList", kurirService.getAllKurir());
             model.addAttribute("kirimanBaru", new KirimanReguler());
@@ -67,6 +72,7 @@ public class EkspedisiController {
         }
     }
 
+    // Hapus Kiriman
     @GetMapping("/kiriman/delete")
     public String deleteKiriman(@RequestParam Long id, HttpServletRequest request) {
         if (!isAdminLoggedIn(request)) {
@@ -76,6 +82,7 @@ public class EkspedisiController {
         return "redirect:/admin/dashboard"; 
     }
 
+    // Load Data Edit
     @GetMapping("/kiriman/edit")
     public String editKiriman(@RequestParam Long id, Model model, HttpServletRequest request) {
         if (!isAdminLoggedIn(request)) {
@@ -85,7 +92,6 @@ public class EkspedisiController {
         Kiriman k = ekspedisiService.getKirimanById(id);
         
         model.addAttribute("kirimanEdit", k);
-        
         model.addAttribute("kurirList", kurirService.getAllKurir());
         model.addAttribute("kirimanList", ekspedisiService.getDaftarKiriman());
         

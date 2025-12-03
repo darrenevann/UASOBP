@@ -62,3 +62,11 @@
 [2025-11-30T19:34:56.469124100] Resi: JP0007, Tipe: KirimanKargo, Tujuan: Monas, Berat: 11,00 kg, Biaya: 110000,00
 [2025-11-30T20:16:09.601909] Resi: JP0006, Tipe: KirimanReguler, Tujuan: JAWA, Berat: 11.00 kg, Biaya: 88000.00
 [2025-11-30T20:16:25.922260] Resi: JP0006, Tipe: KirimanReguler, Tujuan: JAWA, Berat: 11.00 kg, Biaya: 88000.00
+[2025-12-03T16:55:20.460930500] Resi: JP0006, Tipe: KirimanReguler, Tujuan: Medan, Berat: 5.00 kg, Biaya: 40000.00
+[2025-12-03T17:00:52.875022300] Resi: JP0006, Tipe: KirimanReguler, Tujuan: Papua, Berat: 9.90 kg, Biaya: 79200.00
+[2025-12-03T17:14:06.599019700] Resi: JP0007, Tipe: KirimanKilat, Tujuan: Jakarta, Berat: 15.00 kg, Biaya: 95000.00
+[2025-12-03T17:22:11.590848900] Resi: JP0007, Tipe: KirimanKilat, Tujuan: Pontianak, Berat: 10.00 kg, Biaya: 70000.00
+[2025-12-03T17:48:13.541835800] Resi: JP0008, Tipe: KirimanKargo, Tujuan: Surabaya, Berat: 10.00 kg, Biaya: 100000.00
+[2025-12-03T17:50:03.751023100] Resi: JP0008, Tipe: KirimanKargo, Tujuan: Palembang, Berat: 12.00 kg, Biaya: 120000.00
+[2025-12-03T18:23:23.153403100] Resi: JP0008, Tipe: KirimanReguler, Tujuan: Palembang, Berat: 12.00 kg, Biaya: 96000.00
+[2025-12-03T18:23:34.995638200] Resi: JP0008, Tipe: KirimanReguler, Tujuan: Bangka, Berat: 12.00 kg, Biaya: 96000.00

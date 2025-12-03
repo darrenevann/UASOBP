@@ -1,3 +1,5 @@
+// Leticia Michelle Purba (8252401440)
+
 package com.example.demospringboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,44 +15,41 @@ import com.example.demospringboot.entity.Kurir;
 import com.example.demospringboot.service.KurirService;
 
 @Controller
-@RequestMapping("/kurir") // Semua endpoint di controller ini akan diawali /kurir
+@RequestMapping("/kurir") 
 public class KurirController {
 
     @Autowired
     private KurirService kurirService;
 
-    // ENDPOINT UNTUK MENAMPILKAN DAFTAR KURIR 
+    // Tampilkan Daftar & Form
     @GetMapping("/manage")
     public String manageKurir(Model model) {
         model.addAttribute("kurirList", kurirService.getAllKurir());
-        // Objek kosong untuk form tambah baru
         model.addAttribute("newKurir", new Kurir()); 
         return "admin_kurir_manage"; 
     }
 
-    // ENDPOINT UNTUK MEMPROSES TAMBAH/EDIT KURIR (POST /kurir/save) 
+    // Simpan Data
     @PostMapping("/save")
     public String saveKurir(@ModelAttribute Kurir kurir) {
         kurirService.saveKurir(kurir);
         return "redirect:/kurir/manage";
     }
 
-    // ENDPOINT UNTUK MENGHAPUS KURIR (GET /kurir/delete/{id})
+    // Hapus Data
     @GetMapping("/delete/{id}")
     public String deleteKurir(@PathVariable Long id) {
         kurirService.deleteKurir(id);
         return "redirect:/kurir/manage";
     }
 
-    // ENDPOINT UNTUK MENGISI DATA KE FORM EDIT (GET /kurir/edit/{id})
+    // Edit Data (Load Form)
     @GetMapping("/edit/{id}")
     public String editKurir(@PathVariable Long id, Model model) {
-        // Ambil data Kurir lama
         Kurir existingKurir = kurirService.getKurirById(id);
         
-        // Muat daftar kurir dan data yang akan diedit
         model.addAttribute("kurirList", kurirService.getAllKurir());
-        model.addAttribute("newKurir", existingKurir); // Isi form dengan data lama
+        model.addAttribute("newKurir", existingKurir); 
         
         return "admin_kurir_manage"; 
     }

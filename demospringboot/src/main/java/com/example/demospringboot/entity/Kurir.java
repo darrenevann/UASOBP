@@ -36,6 +36,7 @@ public class Kurir {
     @OneToMany(mappedBy = "kurir", fetch = FetchType.LAZY)
     private List<Kiriman> daftarKiriman = new ArrayList<>();
 
+    // Constructors
     public Kurir() {
     }
 
@@ -46,11 +47,12 @@ public class Kurir {
         this.daftarKiriman = new ArrayList<>();
     }
 
+    // Helper Method
     public void tambahKiriman(Kiriman kiriman) {
         this.daftarKiriman.add(kiriman);
     }
 
-    // Getters and Setters
+    // Getters & Setters
     public Long getId() {
         return id;
     }

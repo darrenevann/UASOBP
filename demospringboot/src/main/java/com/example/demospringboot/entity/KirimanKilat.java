@@ -1,3 +1,4 @@
+// Darren Evan Nathanael (825240062)
 package com.example.demospringboot.entity;
 
 import jakarta.persistence.DiscriminatorValue;
@@ -10,15 +11,14 @@ public class KirimanKilat extends Kiriman {
     private double biayaPerKg;
     private double biayaDasarKilat;
 
-    // 1. WAJIB: Konstruktor tanpa argumen untuk JPA
+    // No-Arg Constructor
     public KirimanKilat() {
         super();
     }
 
-    // KOREKSI UTAMA: Tambahkan alamatPengirim ke signature constructor
+    // Constructor Lengkap
     public KirimanKilat(String nomorResi, String alamatPengirim, String alamatTujuan, double beratBarang, double biayaPerKg,
             double biayaDasarKilat) {
-        // Memanggil constructor Kiriman dengan 4 data utama
         super(nomorResi, alamatPengirim, alamatTujuan, beratBarang);
         this.biayaPerKg = biayaPerKg;
         this.biayaDasarKilat = biayaDasarKilat;
@@ -26,11 +26,11 @@ public class KirimanKilat extends Kiriman {
 
     @Override
     public double hitungBiaya() {
-        // Biaya = (Berat * Biaya per Kg) + Biaya Dasar
+        // Logika Hitung Biaya
         return (beratBarang * biayaPerKg) + biayaDasarKilat;
     }
 
-    // --- Getters and Setters ---
+    // Getters and Setters
     
     public double getBiayaPerKg() {
         return biayaPerKg;

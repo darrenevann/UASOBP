@@ -1,3 +1,4 @@
+// Darren Evan Nathanael (825240062)
 package com.example.demospringboot.entity;
 
 import java.time.LocalDateTime;
@@ -30,7 +31,7 @@ public abstract class Kiriman implements PerhitunganBiaya {
     @Column(name = "nomor_resi", unique = true, nullable = false)
     protected String nomorResi;
     
-    // >>> FIELD BARU: ALAMAT PENGIRIM 
+    // FIELD BARU: ALAMAT PENGIRIM 
     @Column(name = "alamat_pengirim", nullable = false) 
     protected String alamatPengirim;
     
@@ -56,8 +57,7 @@ public abstract class Kiriman implements PerhitunganBiaya {
     // CONSTRUCTORS
     // 1. Constructor Wajib
     public Kiriman() {}
-
-    // 2. KOREKSI: Constructor berargumen harus menerima alamat pengirim dan tujuan
+    // 2. Constructor Lengkap
     public Kiriman(String nomorResi, String alamatPengirim, String alamatTujuan, double beratBarang) {
         this.nomorResi = nomorResi;
         this.alamatPengirim = alamatPengirim;
